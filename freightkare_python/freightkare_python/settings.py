@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'accounts'
+    'accounts',
+    'user_profile'
 ]
 
 MIDDLEWARE = [
@@ -114,18 +115,18 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+TIME_ZONE =  'Asia/Kolkata'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
@@ -133,13 +134,49 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication'
     ]
 }
-
 CORS_ORIGIN_ALLOW_ALL = True
+X_FRAME_OPTIONS = 'ALLOWALL'
+
+FILE_UPLOAD_HANDLERS = [
+    'django.core.files.uploadhandler.MemoryFileUploadHandler',
+    'django.core.files.uploadhandler.TemporaryFileUploadHandler',
+]
+
+# CRONJOBS = [
+#     ('2 * * * *', 'dca_cronjobs.cron.imt_queue_update'),
+#     ('10 * * * *', 'dca_cronjobs.cron.equity_imt_queue_assign'),
+#     ('*/30 * * * *', 'dca_cronjobs.cron.bonds_imt_queue_assign'),
+#     ('*/30 8-12 * * *', 'dca_cronjobs.cron.bonds_imt_queue_qa_assign'),
+#     ('5 22 * * *', 'dca_cronjobs.cron.load_config_files'),
+#     ('10 22 * * *', 'dca_cronjobs.cron.load_master_dictionary'),
+#     ('15 22 * * *', 'dca_cronjobs.cron.load_factentry_users'),
+#     ('5 21 * * *', 'dca_cronjobs.cron.eaid_document_save'),
+#     ('5 17 * * *', 'dca_cronjobs.cron.merqube_to_ecats_auto_validate'),
+#     ('10 13 * * *', 'dca_cronjobs.cron.merqube_to_etf_auto_validate'),
+#     ('15 17 * * *', 'dca_cronjobs.cron.ecats_to_merqube'),
+#     ('10 8 * * *', 'dca_cronjobs.cron.nasdaq_to_ecats'),
+#     ('10 22 * * *', 'dca_cronjobs.cron.lper_to_dca'),
+#     ('10 6 * * *', 'dca_cronjobs.cron.signage_consolidated')
+# ]
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USER_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'reports1@factentry.com' 
+# EMAIL_HOST_PASSWORD = 'Fact@951Entry'
+# EMAIL_USE_TLS = True 

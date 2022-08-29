@@ -1,0 +1,66 @@
+.global_nr_column {
+    background-color: #e1dfdf;
+    color: black;
+}
+
+/* .ant-table-small .ant-table-thead>tr:nth-child(1)>th:nth-child(4),
+.ant-table-small .ant-table-thead>tr:nth-child(1)>th:nth-child(5) {
+    background-color: #bf2727;
+    color: white;
+} */
+
+.etf_column {
+    background-color: #d0ffcb;
+    color: black;
+}
+
+/* .ant-table-small .ant-table-thead>tr:nth-child(1)>th:nth-child(6),
+.ant-table-small .ant-table-thead>tr:nth-child(1)>th:nth-child(7),
+.ant-table-small .ant-table-thead>tr:nth-child(1)>th:nth-child(8),
+.ant-table-small .ant-table-thead>tr:nth-child(1)>th:nth-child(10),
+.ant-table-small .ant-table-thead>tr:nth-child(1)>th:nth-child(12),
+.ant-table-small .ant-table-thead>tr:nth-child(2)>th:nth-child(1),
+.ant-table-small .ant-table-thead>tr:nth-child(2)>th:nth-child(2),
+.ant-table-small .ant-table-thead>tr:nth-child(2)>th:nth-child(3),
+.ant-table-small .ant-table-thead>tr:nth-child(2)>th:nth-child(7),
+.ant-table-small .ant-table-thead>tr:nth-child(2)>th:nth-child(8),
+.ant-table-small .ant-table-thead>tr:nth-child(2)>th:nth-child(9) {
+    background-color: #1a5813;
+    color: white;
+} */
+
+.not_found_column {
+    background-color: #efbefd;
+    color: rgb(0, 0, 0);
+}
+
+/* .ant-table-small .ant-table-thead>tr:nth-child(1)>th:nth-child(9),
+.ant-table-small .ant-table-thead>tr:nth-child(1)>th:nth-child(11),
+.ant-table-small .ant-table-thead>tr:nth-child(2)>th:nth-child(4),
+.ant-table-small .ant-table-thead>tr:nth-child(2)>th:nth-child(5),
+.ant-table-small .ant-table-thead>tr:nth-child(2)>th:nth-child(6) {
+    background-color: #9d1bc5;
+    color: white;
+} */
+
+.bond_column {
+    background-color: #fdf6b8;
+    color: rgb(0, 0, 0);
+}
+
+.ant-table-small .ant-table-thead>tr>th {
+    background-color: #043183;
+    color: white;
+}
+
+.ant-table.ant-table-small {
+    font-size: 14px;
+    border: 1px solid #0845b4;
+}
+
+.ant-table-thead th.ant-table-column-has-sorters:hover {
+    background: rgb(8 69 180);
+}
+.ant-table-filter-dropdown {
+    margin-top: -35px;
+}

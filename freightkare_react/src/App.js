@@ -1,9 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import Login from './Authentication/login';
 import Register from './Authentication/register';
 import { useState } from 'react';
-
+import { Space } from 'antd';
+import Logo from './Static/images/fk_logo.svg';
 
 function App() {
 
@@ -12,24 +12,20 @@ function App() {
 
     return (
         <>
-        
-        <div style={{ position: 'absolute', width: '100%'}}>
-            <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                width: '30%',
-                flexDirection: 'column',
-                margin: 'auto',
-                marginTop: '150px',
-                boxShadow: '0px 0px 20px 13px #f7f7f7',
-                background: 'azure',
-                borderRadius: '20px'
-            }}>
-                <h1>FreightKare</h1>
-                <Login />
-                {/* <Register /> */}
-            </div >
-        </div >
+            <div className='row' style={{ margin: 0 }}>
+                <div className='col-md-6'>
+                    <div className='row' >
+                    {/* <img id="headerTitle" src={Logo} align="middle" alt='FactEntry Logo'></img> */}
+                    </div>
+                </div>
+                <div className='col-md-6' style={{ padding: 0 }}>
+                    <Login />
+                </div>
+            </div>
+            {/* <Register /> */}
+            <div className="content flex">
+                <p>Copyright © 2022 FrieghtKare</p>
+            </div>
         </>
     );
 }

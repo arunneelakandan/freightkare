@@ -1,0 +1,200 @@
+/* Autocomplete Customize */
+.ant-input-group>.ant-input:first-child {
+    background: rgb(241, 244, 249);
+}
+
+/* Dropdown customize */
+.ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    background: #DEE9FC;
+}
+
+/* Dropdown result customize */
+/* .ant-select-dropdown-hidden{
+    background: #dee9fc;
+} */
+
+/* Dropdown arrow customize */
+.ant-select-arrow {
+    color: #0845b4;
+}
+
+.ant-select-dropdown {
+    background-color: #dee9fc;
+}
+
+.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+    background-color: #6395F2;
+    color: white;
+    font-size: 12px;
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    background-color: #0845b4;
+    color: rgb(255 255 255 / 85%);
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.ant-select-item-option {
+    font-size: 12px;
+}
+
+.ant-select-dropdown-hidden {
+    background-color: #dee9fc;
+}
+
+/* Datepicker customize */
+.ant-picker {
+    background: rgb(241, 244, 249);
+    padding: 0 0 0 10px;
+}
+
+/* Datepicker icon customize */
+.ant-picker-suffix {
+    color: #0845b4;
+    border-left: 1px solid #c5c5c5;
+    padding: 8px 5.4px;
+    background: #fafafa;
+}
+
+/* Datepicker clear icon customize */
+.ant-picker-clear {
+    right: 40px;
+}
+
+/* Button Customize */
+.ant-btn-primary,
+.ant-btn-primary:active,
+.ant-btn-primary:focus,
+.ant-btn-primary:hover {
+    background: #0845b4;
+    border-color: #0845b4
+}
+
+/* SVG ICON Customize */
+/* .anticon svg {
+    color:black;
+} */
+
+
+/* Tabs before customize */
+.ant-tabs-top>.ant-tabs-nav:before {
+    display: none;
+}
+
+/* Tabs padding customize */
+.ant-tabs-tab {
+    padding: 0%;
+}
+
+/* Tabs space customize */
+.ant-tabs-tab+.ant-tabs-tab {
+    margin: 0 0 0 10px;
+}
+
+/* icon margin */
+.ant-tabs-tab .anticon {
+    margin: 0;
+}
+
+.ant-tabs>.ant-tabs-nav {
+    margin-left: 10px;
+    height: 30px;
+}
+
+.ant-tabs-card>.ant-tabs-nav .ant-tabs-tab {
+    background: #0845b4;
+    color: white;
+}
+
+.ant-tabs-card.ant-tabs-top>.ant-tabs-nav .ant-tabs-tab-active {
+    background: white;
+}
+
+.ant-tabs-tab-btn:active,
+.ant-tabs-tab-btn:focus {
+    color: #ffffff;
+}
+
+/* Scroll Bar Styling */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.ant-select,
+.ant-picker-input>input,
+.ant-input {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.table-box {
+    border: 1px solid #ccc;
+}
+
+.ant-table.ant-table-small .ant-table-tbody>tr>td {
+    padding: 2px;
+    border: 0.5px solid #0845b430;
+    font-size: 12px;
+}
+
+.ant-table-thead th.ant-table-column-has-sorters.ant-table-cell-fix-left:hover {
+    background: none;
+}
+
+/* Carousel Customize */
+
+.ant-carousel .slick-dots li {
+    width: 25px;
+}
+
+.ant-carousel .slick-dots li.slick-active {
+    width: 50px;
+}
+
+.ant-carousel .slick-dots li button {
+    border: 1px solid #0845b4;
+    border-radius: 18px;
+    height: 10px;
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+    background: #0845b4;
+    height: 10px;
+}
+
+/* Segmented Custom CSS */
+.ant-segmented {
+    background-color: #e3e3e342;
+}
+
+.ant-segmented-item-selected {
+    background-color: #007bff;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* 
+.ant-segmented:not(.ant-segmented-disabled):focus, .ant-segmented:not(.ant-segmented-disabled):hover {
+    background-color: rgb(8 69 180 / 10%);
+}
+
+.ant-segmented-item:focus, .ant-segmented-item:hover {
+    color: #fff;
+} */

@@ -8,7 +8,7 @@
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
-            "pythonPath": "F:\\ABDUL RAHMAN\freightkare\freightkare_environment\\Scripts\\python.exe",
+            "python": "F:\\ABDUL RAHMAN\freightkare\freightkare_environment\\Scripts\\python.exe",
             "program": "F:\\ABDUL RAHMAN\\freightkare\\freightkare_python\\manage.py",
             "args": [
                 "runserver",

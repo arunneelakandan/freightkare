@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-u=&vvoqs*a53&&+x*ff-4=flpc4(e4#uchun3se(jj75s2%nzl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -60,8 +60,7 @@ ROOT_URLCONF = 'freightkare_python.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [os.path.join(BASE_DIR, 'build')],
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 # TIME_ZONE = 'UTC'
-TIME_ZONE =  'Asia/Kolkata'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -173,10 +172,10 @@ FILE_UPLOAD_HANDLERS = [
 #     ('10 6 * * *', 'dca_cronjobs.cron.signage_consolidated')
 # ]
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_USER_TLS = True
 # EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'reports1@factentry.com' 
+# EMAIL_HOST_USER = 'reports1@factentry.com'
 # EMAIL_HOST_PASSWORD = 'Fact@951Entry'
-# EMAIL_USE_TLS = True 
+# EMAIL_USE_TLS = True

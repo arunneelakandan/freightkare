@@ -1,2 +1,3 @@
 freightkare_environment/
+freightkare_python/build/*
 *.pyc

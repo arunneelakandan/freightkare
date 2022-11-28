@@ -1,0 +1,61 @@
+######## To create your app, make sure you’re in the same directory as manage.py and type this command:
+python manage.py startapp app_name
+******************************************************************************************************************************************
+######## To Run the project 
+python manage.py runserver
+******************************************************************************************************************************************
+######## Create Models for existing database
+python manage.py inspectdb --database=database_name > app_name/models/database_name.py
+eg: python manage.py inspectdb --database=FERACK2_REG RegDownload > imt_queue/models/FERACK2_REG.py
+eg: python manage.py inspectdb --database=FERACK2_IMT > commons/models/FERACK2_IMT.py
+eg: python manage.py inspectdb --database=FERACK2_SE > commons/models/FERACK2_SE.py
+    
+
+
+
+eg: python manage.py inspectdb --database=FERACK_FE1 FISIN
+******************************************************************************************************************************************
+# Disable CSRF Token in Django Project
+https://overcoder.net/q/17018/django-rest-framework-%D1%83%D0%B4%D0%B0%D0%BB%D0%B8%D1%82%D1%8C-csrf
+******************************************************************************************************************************************
+######## Steps to setup a cron job in Django 
+*** Note : Please try this in Ubuntu
+https://gutsytechster.wordpress.com/2019/06/24/how-to-setup-a-cron-job-in-django/
+
+*** Now let’s get started with setting up the cron job in Django environment. We just need to follow some simple steps:-
+
+*** We first need to install the module using pip. I’ll suggest you to do it in a virtual environment in which all other dependencies of your project are installed.
+pip install django-crontab
+*** Add django_crontab to INSTALLED_APPS in your django project’s settings.py file
+INSTALLED_APPS = [
+    'django_crontab',
+    ...
+]
+*** Create a file anywhere within your django’s project according to your module directory structure for e.g. myapp/cron.py and define the function which you want to be executed automatically via cron. This will be your cron job.
+def my_cron_job():
+    # your functionality goes here
+*** Add the following line to your django project’s settings.py file
+CRONJOBS = [
+    ('*/2 * * * *', 'myapp.cron.my_cron_job')
+]
+*** We define a cron just as above. The above cron job is scheduled to be run at every 2nd minute of each hour.
+*** You can also provide positional or keyword arguments to the cron definition for the cron method as
+
+CRONJOBS = [
+    ('0 0 1 * *', 'myapp.cron.other_cron_job', ['pos_arg1', 'pos_arg2'], {'verbose': 'key_arg'}),
+]
+*** Run this command to add all the defined CRONJOBS to crontab(*nix cron utility). Make sure to run this command every time CRONJOBS is changed in any way.
+python manage.py crontab add
+*** To get all the active CRONJOBS, run the following command
+python manage.py crontab show
+*** To remove all the defined CRONJOBS from crontab, run the following command
+python manage.py crontab remove
+
+******************************************************************************************************************************************
+
+
+To kill app via PORT
+
+Use this command : 
+
+sudo kill -9 $(sudo lsof -t -i:8080)

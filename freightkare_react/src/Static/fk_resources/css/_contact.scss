@@ -1,0 +1,160 @@
+@import './variables';
+@import './utils';
+
+.contact-wrap {
+    @include flex(row, stretch, flex-start);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.01), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
+    border-radius: 15px;
+    padding: 14px;
+    margin: 40px 0px;
+    .contact-aside {
+        flex: 1;
+        padding: 20px 30px;
+        .contact-aside-header {
+            h1 {
+                font-size: $f_26;
+            }
+            p {
+                font-size: $f_14;
+            }
+        }
+        .contact-aside-body {
+            padding: 30px 0px;
+            .contact-links {
+                li {
+                    @include flex(row, center, flex-start);
+                    margin-bottom: 24px;
+                    i {
+                        font-size: $f_18;
+                        margin-right: 14px;
+                        color: $primary_theme;
+                    }
+                    p {
+                        font-size: $f_14;
+                        color: $secondary;
+                    }
+                    a {
+                        font-size: $f_14;
+                        color: $secondary;
+                    }
+                }
+            }
+        }
+        .contact-aside-footer {
+            .social-links {
+                @include flex(row, center, flex-start);
+                li {
+                    margin-right: 20px;
+                    a {
+                        i {
+                            font-size: $f_30;
+                            color: $primary_theme;
+                            &:hover {
+                                color: $secondary_theme;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .form-fields {
+        &.contact-form {
+            flex: 2;
+            padding: 20px 30px;
+            .form-field-multi {
+                @include flex(row, center, flex-start);
+                .form-field {
+                    margin-bottom: 20px;
+                    flex: 1;
+                    &:first-child {
+                        margin-right: 20px;
+                    }
+                    input {
+                        height: 40px;
+                        background-color: transparent;
+                        border: 1px solid $secondary;
+                        border-radius: 5px;
+                        font-size: $f_16;
+                        color: $secondary;
+    
+                        &::placeholder {
+                            color: $secondary;
+                        }
+    
+                        &:checked {
+                            background-color: $primary_theme
+                        }
+                    }
+                }
+            }
+            .form-field-single {
+                .form-field {
+                    textarea {
+                        border-radius: 5px;
+                        font-size: $f_16 !important;
+                        color: $secondary;
+                        &::placeholder {
+                            color: $secondary; 
+                        }
+                    }
+                }
+            }
+            .btn-contact {
+                display: inline-block;
+                margin-top: 16px;
+                padding: 6px 24px;
+            }
+        }
+    }
+}
+
+.fk-footerWrap {
+    background-color: $secondary;
+    padding: 100px 60px;
+    .fk-footHeader {
+        @include flex(column, center, center);
+        h3 {
+            font-size: $f_32;
+            color: $primary;
+            margin-bottom: 60px;
+        }
+        img {
+            width: 400px;
+            height: auto;
+        }
+    }
+    .fk-footBody {
+        text-align: center;
+        img {
+            margin: 200px 0px 140px 0px;
+            width: 90%;
+        }
+        .mail {
+            @include flex(row, center, space-between);
+            a {
+                color: $primary;
+                font-size: $f_18;
+            }
+        }
+    }
+    .fk-foot {
+        @include flex(row, center, space-between);
+        margin: 100px 0px 0px;
+        .fk-foot-item {
+            padding: 0px 34px;
+            text-align: center;
+            h1 {
+                font-size: $f_24;
+                color: $primary;
+                text-transform: uppercase;
+                letter-spacing: 6px;
+                margin-bottom: 18px;
+            }
+            p {
+                font-size: $f_14;
+                color: $primary;
+            }
+        }
+    }
+}

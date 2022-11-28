@@ -1,0 +1,57 @@
+@import './variables';
+@import './utils';
+
+.error-shell-wrap {
+    min-height: 100vh;
+    padding: 30px 0px 30px 100px;
+    .error-shell {
+        @include flex(row, center, flex-end);
+        min-height: calc(100vh - 60px);
+        position: relative;
+
+        .error-content {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            h1 {
+                font-size: $f_48;
+                color: $secondary;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+            p {
+                 font-size: $f_22;
+                 color: $primary;
+                 line-height: 1.2;
+                 margin-bottom: 20px;
+                 a {
+                    color: $primary;
+                    font-weight: bold;
+                    text-decoration: none;
+                 }
+            }
+            .login_link {
+                font-size: $f_22;
+                 color: $primary;
+            }
+            .error-btn {
+                background: $error_btn;
+                font-size: $f_22;
+                font-weight: bold;
+                color: $primary;
+                padding: 14px 28px;
+                border-radius: 10px;
+                margin: 20px 0px;
+            }
+        }
+        .error-img {
+            height: calc(100vh - 120px);
+            width: 60%;
+            img {
+                height: calc(100vh - 120px);
+                width: 100%;
+            }
+        }
+    }
+}

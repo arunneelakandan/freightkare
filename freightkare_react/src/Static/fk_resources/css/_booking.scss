@@ -1,0 +1,461 @@
+@import "./variables";
+@import "./utils";
+
+.fk-booking-wrap {
+    width: 100%;
+    padding: 16px 0px;
+    .fk-booking-form-wrap {
+        h1 {
+            color: $secondary;
+            font-size: $f_26;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: $secondary;
+            font-size: $f_18;
+        }
+        .fk-booking-tabs {
+            ul {
+                border: unset;
+                li {
+                    button {
+                        @include flex(row, center, space-between);
+                        border: unset;
+                        font-size: $f_16;
+                        color: $secondary;
+                        padding: 0px;
+                        margin: 5px 14px 5px 0px;
+                        i {
+                            color: $primary_theme;
+                            font-size: $f_16;
+                            padding-right: 6px;
+                        }
+                        &.active {
+                            border: unset;
+                            border-bottom: 2px solid $secondary;
+                        }
+                    }
+                }
+            }
+        }
+        .fk-booking-content {
+            .fk-booking-form {
+                .fk-booking-detail {
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.01), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
+                    border-radius: 15px;
+                    padding: 20px;
+                    margin: 26px 0px;
+                    h4 {
+                        font-size: $f_20;
+                        color: $secondary;
+                        margin: 0px 0px 14px 0px;
+                    }
+                    .fk-booking-choice {
+                        @include flex(row, flex-start, flex-start); 
+                        .fk-booking-choice-listWrap {
+                            margin-right: 14px;
+                            .fk-booking-choice-list {
+                                @include flex(row, center, space-between);
+                                .fk-booking-choice-title {
+                                    @include flex(row, center, flex-start);
+                                    margin-right: 12px;
+                                    i {
+                                        font-size: $f_20;
+                                        color: $primary_theme;
+                                        margin-right: 8px;
+                                    }  
+                                    h4 {
+                                        font-size: $f_16;
+                                        color: $secondary;
+                                        margin: 8px 0px;
+                                    }
+                                }
+                                .toggle-switch {
+                                    position: relative;
+                                    width: 50px;
+                                    height: 25px;
+                                    label {
+                                        position: absolute;
+                                        width: 100%;
+                                        height: 25px;
+                                        background-color: $secondary;
+                                        border-radius: 50px;
+                                        cursor: pointer;
+                                        border: 1px solid $secondary;
+                                    }
+                                      input {
+                                        position: absolute;
+                                        display: none;
+                                    }
+                                    .slider {
+                                        position: absolute;
+                                        width: 100%;
+                                        height: 100%;
+                                        border-radius: 50px;
+                                        transition: 0.3s;
+                                    }
+                                      
+                                    input:checked ~ .slider {
+                                        background-color: $primary;
+                                    }
+                                      
+                                    .slider::before {
+                                        content: "";
+                                        position: absolute;
+                                        top: 4px;
+                                        left: 4px;
+                                        width: 15px;
+                                        height: 15px;
+                                        border-radius: 50%;
+                                        box-shadow: inset 28px -4px 0px 0px $primary;
+                                        background-color: $secondary;
+                                        transition: 0.3s;
+                                    }
+                                      
+                                    input:checked ~ .slider::before {
+                                        transform: translateX(25px);
+                                        background-color: $secondary;
+                                        box-shadow: none;
+                                    }   
+                                }
+                            }
+                            .fk-booking-choice-info {
+                                p {
+                                    font-size: $f_12;
+                                    color: $secondary;
+                                }
+                            }
+                        }
+                    }
+                    .fk-booking-field {
+                        @include flex(row, center, flex-start);
+                        margin-top: 14px;
+                        .address {
+                            display: none;
+                        }
+                        .form-field-wrap {
+                            flex: 1;
+                            margin-right: 16px;
+                            &:last-child {
+                                margin-right: 0px;
+                            }
+                            h3 {
+                                font-size: $f_16;
+                                color: $secondary;
+                            }
+                            .form-field {
+                                input {
+                                    font-size: $f_14;
+                                    color: $secondary;
+                                }
+                                label {
+                                    font-size: $f_14;
+                                    color: $secondary;
+                                }
+                                &.single-field {
+                                    max-width: 32%;
+                                }
+                            }
+                        }
+                    }
+
+                    &.fk-cargo {
+                        .fk-cargo-choice {
+                            h5 {
+                                font-size: $f_12;
+                                color: $secondary;
+                            }
+                            .form-radio {
+                                @include flex(row, center, flex-start);
+                                
+                                .form-check {
+                                    &:first-child {
+                                        padding-left: 0px;
+                                    }
+                                    input {
+                                        display: none;
+                                        &:checked ~ label {
+                                            background-color: $primary_theme;
+                                            color: $primary;
+                                        }
+                                    }
+                                    label {
+                                        font-size: $f_14;
+                                        color: $secondary;
+                                        border: 1px solid $primary_theme;
+                                        border-radius: 5px;
+                                        padding: 8px 16px;
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+                        }
+                        .cargo-container-type {
+                            margin-top: 18px;
+                            h2 {
+                                font-size: $f_16;
+                                color: $secondary;
+                            }
+                            ul {
+                                border: unset;
+                                margin-bottom: 16px;
+                                li {
+                                    button {
+                                        @include flex(row, center, space-between);
+                                        border: unset;
+                                        font-size: $f_16;
+                                        color: $secondary;
+                                        padding: 6px 20px;
+                                        margin: 5px 14px 5px 0px;
+                                        font-size: $f_14;
+                                        border: 1px solid $primary_theme;
+                                        border-radius: 5px;
+                                        &.active {
+                                            border: unset;
+                                            border: 1px solid $primary_theme;
+                                            background-color: $primary_theme;
+                                            padding: 6px 20px;
+                                            color: #fff;
+                                            border-radius: 5px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .cargo-type-content {
+                            .fk-containerType {
+                                .fk-cargo-detail {
+                                    margin-bottom: 16px;
+                                    .fk-total-cargo {
+                                        .form-field-multi {
+                                            @include flex(row, center, flex-start);
+                                            .form-field-wrap {
+                                                margin-right: 16px;
+                                                .title {
+                                                    font-size: $f_12;
+                                                    color: $secondary;
+                                                }
+                                                .form-field {
+                                                    input {
+                                                        font-size: $f_14;
+                                                        color: $secondary;
+                                                    }
+                                                    label {
+                                                        font-size: $f_14;
+                                                        color: $secondary;
+                                                    }
+                                                    &.single-field {
+                                                        max-width: 50%;
+                                                    }
+                                                }
+                                                .quantity-field {
+                                                    @include flex(row, center, flex-start);
+                                                    border: 1px solid $secondary;
+                                                    border-radius: 6px;
+                                                    padding: 1px;
+                                                    img {
+                                                        cursor: pointer;
+                                                    }
+                                                    input {
+                                                        flex: 1;
+                                                        font-size: $f_16;
+                                                        outline: none;
+                                                        padding: 7px;
+                                                        color: $secondary;
+                                                        transition: 0.1s ease-out;
+                                                        background-color: $primary;
+                                                        text-align: center;
+                                                        border: unset;
+                        
+                                                        &::-webkit-outer-spin-button,
+                                                        &::-webkit-inner-spin-button {
+                                                        -webkit-appearance: none;
+                                                        margin: 0;
+                                                        }
+                        
+                                                        &[type=number] {
+                                                        -moz-appearance: textfield;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .fk-cargo-container-wrap {
+                                        .fk-cargo-container {
+                                            @include flex(row, flex-end, flex-start);
+                                            &.fk-cargo-container-multi {
+                                                @include flex(column, flex-start, flex-start);
+                                                h4 {
+                                                    font-size: $f_16;
+                                                    margin-top: 16px;
+                                                    margin-bottom: 0px;
+                                                }
+                                                .fk-cargo-container-inner {
+                                                    @include flex(row, flex-end, flex-start);
+                                                    width: 100%;
+                                                }
+                                                .fk-checkbox {
+                                                    margin-top: 12px;
+                                                    input {
+                                                        width: 1.8rem;
+                                                        height: 1.8rem;
+                                                        margin-right: 8px;
+                                                    }
+                                                    label {
+                                                        font-size: $f_14;
+                                                        color: $secondary;
+                                                    }
+                                                }
+                                                .quantity-field {
+                                                    @include flex(row, center, flex-start);
+                                                    border: 1px solid $secondary;
+                                                    border-radius: 6px;
+                                                    padding: 1px;
+                                                    img {
+                                                        cursor: pointer;
+                                                    }
+                                                    input {
+                                                        flex: 1;
+                                                        font-size: $f_16;
+                                                        outline: none;
+                                                        padding: 7px 10px;
+                                                        color: $secondary;
+                                                        transition: 0.1s ease-out;
+                                                        background-color: $primary;
+                                                        text-align: center;
+                                                        border: unset;
+                        
+                                                        &::-webkit-outer-spin-button,
+                                                        &::-webkit-inner-spin-button {
+                                                        -webkit-appearance: none;
+                                                        margin: 0;
+                                                        }
+                        
+                                                        &[type=number] {
+                                                        -moz-appearance: textfield;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .delete-clone {
+                                                display: none;
+                                                i {
+                                                    font-size: $f_20;
+                                                    color: red;
+                                                    cursor: pointer;
+                                                }
+                                            }
+                                            .form-field-wrap {
+                                                flex: 1;
+                                                margin-right: 16px;
+                                                &:last-child {
+                                                    margin-right: 0px;
+                                                }
+                                                h3 {
+                                                    font-size: $f_16;
+                                                    color: $secondary;
+                                                    margin: 8px 0px;
+                                                }
+                                                .form-field {
+                                                    input {
+                                                        font-size: $f_14;
+                                                        color: $secondary;
+                                                    }
+                                                    label {
+                                                        font-size: $f_14;
+                                                        color: $secondary;
+                                                    }
+                                                    &.single-field {
+                                                        max-width: 50%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .fk-cargo-container-btn {
+                                        margin-top: 14px;
+                                        .btn-cargo {
+                                            margin-right: 14px;
+                                        }
+                                    }
+                                }
+                                .btn-cargo {
+                                    padding: 6px 20px;
+                                    font-size: $f_14;
+                                }
+                            }
+                            
+                        }
+
+                        .cargo-remark {
+                            margin-top: 18px;
+                            .form-field-wrap {
+                                flex: 1;
+                                margin-right: 16px;
+                                &:last-child {
+                                    margin-right: 0px;
+                                }
+                                h3 {
+                                    font-size: $f_16;
+                                    color: $secondary;
+                                    margin: 8px 0px;
+                                }
+                                .form-field {
+                                    textarea {
+                                        font-size: $f_14;
+                                        color: $secondary;
+                                    }
+                                    label {
+                                        font-size: $f_14;
+                                        color: $secondary;
+                                    }
+                                    &.single-field {
+                                        max-width: 50%;
+                                    }
+                                }
+                            }
+                        }
+
+                        .file-input {
+                            display: none;
+                            margin-top: 18px;
+                            .file-input__input {
+                                width: 0.1px;
+                                height: 0.1px;
+                                opacity: 0;
+                                overflow: hidden;
+                                position: absolute;
+                                z-index: -1;
+                            }
+                            
+                            .file-input__label {
+                                cursor: pointer;
+                                display: inline-flex;
+                                align-items: center;
+                                border-radius: 4px;
+                                font-size: 14px;
+                                font-weight: 600;
+                                color: #fff;
+                                font-size: 14px;
+                                padding: 10px 12px;
+                                background-color: $primary_theme;
+                                box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+                            }
+                            
+                            .file-input__label svg {
+                                height: 16px;
+                                margin-right: 4px;
+                            }                                              
+                        }
+                    }
+                }
+                .btn-booking {
+                    padding: 6px 20px;
+                    font-size: $f_16;
+                }
+            }
+        }
+    }
+}

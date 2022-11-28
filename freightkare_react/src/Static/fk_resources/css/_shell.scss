@@ -1,0 +1,259 @@
+@import './variables';
+@import './utils';
+
+.container-shell {
+    min-height: 100vh;
+    padding: 0px;
+
+    .shell-main {
+        padding: 0px;
+        min-height: 100vh;
+        .shell-inner {
+            min-height: 100vh;
+            @include flex(column, stretch, flex-start);
+            .shell-header {
+                @include flex(row, center, space-between);
+                background-color: $secondary;
+                padding: 14px 60px;
+                .logo-wrap {
+                    a {
+                        display: block;
+                        img {
+                            width: 150px;
+                            height: auto;
+                        }
+                    }
+                }
+                .nav-menu {
+                    flex: 1;
+                    @include flex(row, center, flex-end);
+                    list-style: none;
+                    margin: 0px;
+                    .nav-menuList {
+                        list-style: none;
+                        a {
+                            color: $primary;
+                            font-size: $f_14;
+                            text-decoration: none;
+                            padding: 12px;
+                            span {
+                                color: $primary;
+                                font-size: $f_14;
+                                display: inline-block;
+                                position: relative;
+                                    &::after {
+                                        content: "";
+                                        width: 0%;
+                                        height: 2px;
+                                        background-color: $primary;
+                                        display: inline-block;
+                                        position: absolute;
+                                        left: 0;
+                                        bottom: -2px;
+                                        opacity: 0;
+                                        transition: all .5s ease-in-out;
+                                    }
+                            }
+                            &:hover {
+                                span {
+                                    &::after {
+                                        opacity: 1;
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .mob-menu-icon {
+                    display: none
+                }
+            }
+            .shell-body {
+                @include flex(row, stretch, flex-start);
+                flex: 1;
+                padding: 0px 60px;
+                &.direction-col {
+                    flex-direction: column;
+                }
+            }
+            .shell-footer {
+                // background-color: $secondary;
+                padding: 20px 60px;
+                .shell-copy-right {
+                    color: $secondary;
+                    font-size: $f_14;
+                }
+            }
+        }
+    }
+
+    .mob-menu-wrapper {
+        display: none;
+    }
+
+    // Modal
+    // .instruction_modal {
+    //     .modal-content {
+    //         position: relative;
+    //         background-color: $modal_gradient;
+    //         padding: 60px 64px;
+    //         border: none;
+    //         border-radius: 10px;
+
+    //         &::after {
+    //             content: "";
+    //             display: block;
+    //             position: absolute;
+    //             width: 392px;
+    //             height: 336px;
+    //             background-image: url("../assets/images/svg/instruction_bg.svg");
+    //             background-repeat: no-repeat;
+    //             top: 50%;
+    //             left: 100%;
+    //             transform: translate(-100%, -50%);
+    //         }
+    //         .modal-header {
+    //             border-bottom: none;
+    //             h5 {
+    //                 font-size: $f_30;
+    //                 color: $secondary;
+    //                 font-weight: bold;
+    //             }
+    //         }
+    //         .modal-body {
+    //             width: 60%;
+    //             .instruction_list {
+    //                 li {
+    //                     font-size: $f_18;
+    //                     color: $primary;
+    //                     padding-bottom: 14px;
+    //                     line-height: 1.3;
+    //                     list-style: none;
+    //                     position: relative;
+    //                     &::before {
+    //                         content: "";
+    //                         position: absolute;
+    //                         left: -18px;
+    //                         top: 5px;
+    //                         width: 7px;
+    //                         height: 12px;
+    //                         background-image: url(../assets/images/svg/instruction_arrow.svg);
+    //                         background-repeat: no-repeat;
+    //                     }
+    //                 }
+    //             }
+    //             .btn-wrap {
+    //                 display: inline-block;
+    //                 padding-top: 30px;
+    //                 margin: 0px 20px;
+    //                 button {
+    //                     position: relative;
+    //                     padding: 12px 18px;
+    //                     &:hover {
+    //                         color: $white_four;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+
+    // .testResult_modal {
+    //     .modal-content {
+    //         border-radius: 10px;
+    //         .modal-header {
+    //             padding: 20px 30px 20px 100px;
+    //             .modal-title {
+    //                 position: relative;
+    //                 font-size: $f_22;
+    //                 color: $secondary;
+    //                 &::before {
+    //                     content: "";
+    //                     position: absolute;
+    //                     display: inline-block;
+    //                     background-image: url("../assets/images/svg/testResult_icon.svg");
+    //                     background-repeat: no-repeat;
+    //                     width: 30px;
+    //                     height: 36px;
+    //                     background-size: contain;
+    //                     left: -40px;
+    
+    //                 }
+    //             }
+    //             button {
+    //                 border: 2px solid #292929;
+    //                 border-radius: 50%;
+    //                 opacity: 1;
+    //                 font-size: 15px;
+    //                 font-weight: bold;
+    //             }
+    //         }
+    //         .modal-body {
+    //             padding: 30px 30px 40px 60px;
+    //             .title {
+    //                 font-size: $f_20;
+    //                 color: $black_four;
+    //             }
+    //             .dropdown {
+    //                 margin: 30px 0px;
+    //                 select {
+    //                     background-color: transparent;
+    //                     color: #034EA2;
+    //                     border: 1px solid #034EA2;
+    //                     font-size: 16px;
+    //                     width: 250px;
+    //                     text-align: left;
+    //                     padding: 8px;
+    //                 }
+    //             }
+    //             .test-tabel {
+    //                 table {
+    //                     thead {
+    //                         background-color: $primary;
+    //                         tr {
+    //                             th {
+    //                                 font-size: $f_16;
+    //                                 color: $textWhite;
+    //                                 padding: 14px;
+    //                                 &:first-child {
+    //                                     border-top-left-radius: 10px;
+    //                                 }
+    //                                 &:last-child {
+    //                                     border-top-right-radius: 10px;
+    //                                 }
+    //                             }
+    //                         }
+    //                     }
+    //                     tbody {
+    //                         tr {
+    //                             td {
+    //                                 font-size: $f_16;
+    //                                 color: $primary;
+    //                                 padding: 14px;
+    //                             }
+    //                             &:nth-child(odd) {
+    //                                 background-color: #EBEDF3;
+    //                             }
+    //                             &:nth-child(even) {
+    //                                 background-color: #E0E4EE;
+    //                             }
+    //                             &:last-child {
+    //                                 td {
+    //                                     border-bottom: unset;
+    //                                     &:first-child {
+    //                                         border-bottom-left-radius: 10px;
+    //                                     }
+    //                                     &:last-child {
+    //                                         border-bottom-right-radius: 10px;
+    //                                     }
+    //                                 }
+    //                             }
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+}

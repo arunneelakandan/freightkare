@@ -34,7 +34,7 @@ class PortNameSuggestion(APIView):
             post_data = self.request.data
             port_name = post_data['port_name']
             ports = TblPorts.objects.filter(
-                Q(port_name__startswith=port_name) | Q(country_name__startswith=port_name)).order_by('country_name')
+                Q(port_name__istartswith=port_name) | Q(country_name__istartswith=port_name)).order_by('country_name')
             ports = TblPortsSerializer(ports, many=True)
             if ports.data:
                 return Response({'is_authenticated': user.is_authenticated, 'status': True, 'message':'success', 'ports': ports.data})

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
-import { Menu, Button, Result, AutoComplete, Input } from 'antd';
+import { Menu, Button, Result, AutoComplete, DatePicker } from 'antd';
 import { AppstoreOutlined, PieChartOutlined, ProjectOutlined, ExportOutlined, WifiOutlined, LineChartOutlined, HddOutlined, TeamOutlined, HomeOutlined, RiseOutlined, DashboardOutlined, ConsoleSqlOutlined } from '@ant-design/icons';
 import Logo from '../Static/images/fk_logo.svg';
 import background from '../Static/background.jpg'
@@ -112,10 +112,11 @@ function Home() {
             const searchResultfun = (query) =>
                 query.map((item) => {
                     return {
-                        id: item.entityid,
-                        value: item.entityname,
-                        country: item.Country,
-                        sector: item.sectorfactEntry,
+                        id: item.id,
+                        value: item.port_name,
+                        country: item.country_name,
+                        sector: item.port_code,
+                        url: item.url,
                         label: (
                             <div
                                 style={{
@@ -124,7 +125,7 @@ function Home() {
                                 }}
                             >
                                 <span>
-                                    {item.entityname} | <b>{item.jurisdiction}</b>
+                                    {item.port_name} | <b>{item.country_name}</b>
                                 </span>
                             </div>
                         ),
@@ -139,7 +140,7 @@ function Home() {
                     result = JSON.parse(result)
                     if (result.is_authenticated === true) {
 
-                        setOptions(value ? searchResultfun(result.data) : [])
+                        setOptions(value ? searchResultfun(result.ports) : [])
 
                     }
 
@@ -152,6 +153,9 @@ function Home() {
         console.log('onSelect', value);
     };
 
+    const onChange = (date, dateString) => {
+        console.log(date, dateString);
+    };
 
     const [loadingStyle, setloadingStyle] = useState({})
 
@@ -161,7 +165,7 @@ function Home() {
             return (
                 <div className="preloader" style={loadingStyle}>
                     <div style={{ textAlign: 'center' }}>
-                        <img src={Logo} alt='FactEntry Logo' style={{ paddingBottom: '10px' }} />
+                        <img src={Logo} alt='Freightkare Logo' style={{ paddingBottom: '10px' }} />
                         <div className="sk-spinner sk-spinner-wave">
                             <div className="sk-rect1"></div>&nbsp;
                             <div className="sk-rect2"></div>&nbsp;
@@ -189,7 +193,7 @@ function Home() {
                                             <div className="shell-header">
                                                 <div className="logo-wrap">
                                                     <a href="./index.html">
-                                                        <img src="./assets/images/svg/fk_logo.svg" alt="logo" />
+                                                        <img src={Logo} alt='Freightkare Logo' />
                                                     </a>
                                                 </div>
                                                 <ul className="nav-menu">
@@ -234,7 +238,7 @@ function Home() {
                                             <div className="shell-body">
                                                 <div className="fk-booking-wrap">
                                                     <div className="fk-booking-form-wrap">
-                                                        <h1>Create a booking</h1>
+                                                        <h1 style={{ fontFamily: '"segoeui", sans-serif' }}>Create a booking</h1>
                                                         <h3>Type of booking</h3>
 
                                                         <div className="fk-booking-tabs">
@@ -310,13 +314,13 @@ function Home() {
                                                                                     <AutoComplete
                                                                                         dropdownMatchSelectWidth={252}
                                                                                         style={{
-                                                                                            width: 300,
+                                                                                            width: '100%',
                                                                                         }}
                                                                                         options={options}
                                                                                         onSelect={onSelect}
                                                                                         onSearch={handleSearch}
                                                                                     >
-                                                                                        <Input.Search size="large" placeholder="input here" enterButton />
+
                                                                                     </AutoComplete>
                                                                                 </div>
                                                                             </div>
@@ -330,15 +334,7 @@ function Home() {
                                                                             </div>
                                                                             <div className="form-field-wrap">
                                                                                 <h3 className="title">Cargo Ready Date</h3>
-                                                                                <div
-                                                                                    className="material-textfield material-textfield-calender">
-                                                                                    <input className="datepicker" placeholder=" "
-                                                                                        type="text" />
-                                                                                    <label>Date</label>
-                                                                                    <img className="calender-icon"
-                                                                                        src="./assets/images/svg/calender.svg"
-                                                                                        alt="calender_icon" />
-                                                                                </div>
+                                                                                <DatePicker onChange={onChange} />
                                                                             </div>
                                                                         </div>
 
@@ -379,9 +375,17 @@ function Home() {
                                                                             <div className="form-field-wrap">
                                                                                 <h3 className="title">Destination Port / City</h3>
                                                                                 <div className="form-field single-field material-textfield">
-                                                                                    <input type="text" placeholder=" "
-                                                                                        className="form-control" />
-                                                                                    <label>Destination Port / City</label>
+                                                                                    <AutoComplete
+                                                                                        dropdownMatchSelectWidth={252}
+                                                                                        style={{
+                                                                                            width: '100%',
+                                                                                        }}
+                                                                                        options={options}
+                                                                                        onSelect={onSelect}
+                                                                                        onSearch={handleSearch}
+                                                                                    >
+
+                                                                                    </AutoComplete>
                                                                                 </div>
                                                                             </div>
                                                                             <div className="form-field-wrap address">

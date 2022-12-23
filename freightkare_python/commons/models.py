@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+
+
 class TblPorts(models.Model):
     id = models.BigIntegerField(primary_key=True)
     port_name = models.CharField(max_length=50)
@@ -11,3 +13,17 @@ class TblPorts(models.Model):
     class Meta:
         managed = False
         db_table = 'tbl_ports'
+
+
+class TblRateSheet(models.Model):
+    origin = models.BigIntegerField()
+    destination = models.BigIntegerField()
+    container_type = models.BigIntegerField()
+    container_size = models.BigIntegerField()
+    currency = models.CharField(max_length=3)
+    rate = models.FloatField()
+    id = models.BigIntegerField(primary_key=True)
+
+    class Meta:
+        managed = False
+        db_table = 'tbl_rate_sheet'

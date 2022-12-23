@@ -24,9 +24,28 @@ from rest_framework import status
 from django.db.models import Q
 
 
-class PortNameSuggestion(APIView):
+class GetQuotationRate(APIView):
     # authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
     @unauthenticated_user
+    def post(self, request, format=None):
+        try:
+            user = self.request.user
+            username = user.username
+            post_data = self.request.data
+            filter = post_data["filter"]
+            ratesheet = TblRateSheet.objects.filter(**filter)
+            ratesheet = TblRateSheetSerializer(ratesheet, many=True)
+            if ratesheet.data:
+                return Response({'is_authenticated': user.is_authenticated, 'status': True, 'message': 'success', 'ratesheet': ratesheet.data})
+            else:
+                return Response({'is_authenticated': user.is_authenticated, 'status': True, 'message': 'No records found', 'ratesheet': []})
+        except:
+            return Response({'is_authenticated': user.is_authenticated, 'status': False}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+class PortNameSuggestion(APIView):
+    # authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
+    @ unauthenticated_user
     def post(self, request, format=None):
         try:
             user = self.request.user
@@ -37,8 +56,8 @@ class PortNameSuggestion(APIView):
                 Q(port_name__istartswith=port_name) | Q(country_name__istartswith=port_name)).order_by('country_name')
             ports = TblPortsSerializer(ports, many=True)
             if ports.data:
-                return Response({'is_authenticated': user.is_authenticated, 'status': True, 'message':'success', 'ports': ports.data})
+                return Response({'is_authenticated': user.is_authenticated, 'status': True, 'message': 'success', 'ports': ports.data})
             else:
-                return Response({'is_authenticated': user.is_authenticated, 'status': True, 'message':'No records found', 'ports': []})
+                return Response({'is_authenticated': user.is_authenticated, 'status': True, 'message': 'No records found', 'ports': []})
         except:
             return Response({'is_authenticated': user.is_authenticated, 'status': False}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

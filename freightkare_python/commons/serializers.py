@@ -5,3 +5,8 @@ class TblPortsSerializer(serializers.ModelSerializer):
     class Meta:
         model = TblPorts
         fields = '__all__'
+
+class TblRateSheetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TblRateSheet
+        fields = '__all__'

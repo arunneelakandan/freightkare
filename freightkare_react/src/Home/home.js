@@ -1,7 +1,9 @@
 import React, { useState, useEffect, createContext } from "react";
-import { Menu, Button, Result, AutoComplete, DatePicker } from 'antd';
+import { Menu, Button, Result, AutoComplete, DatePicker,Tabs } from 'antd';
 import { AppstoreOutlined, PieChartOutlined, ProjectOutlined, ExportOutlined, WifiOutlined, LineChartOutlined, HddOutlined, TeamOutlined, HomeOutlined, RiseOutlined, DashboardOutlined, ConsoleSqlOutlined } from '@ant-design/icons';
 import Logo from '../Static/images/fk_logo.svg';
+import Truck from '../Static/images/truck.svg';
+import Document from '../Static/images/document.svg';
 import background from '../Static/background.jpg'
 import '../Static/fk_resources/css/_404.scss';
 import '../Static/fk_resources/css/_about.scss';
@@ -18,6 +20,7 @@ import '../Static/fk_resources/css/_variables.scss';
 import '../Static/fk_resources/css/style.css';
 import '../Static/fk_resources/css/style.scss';
 import Cookies from 'js-cookie';
+
 
 export const ParentfromHomeContext = createContext()
 
@@ -242,32 +245,17 @@ function Home() {
                                                         <h3>Type of booking</h3>
 
                                                         <div className="fk-booking-tabs">
-                                                            <ul className="nav nav-tabs" id="fk-booking-tablist" role="tablist">
-                                                                <li className="nav-item" role="presentation">
-                                                                    <button className="nav-link active" id="fcl-tab" data-bs-toggle="tab"
-                                                                        data-bs-target="#fcl" type="button" role="tab"
-                                                                        aria-controls="fcl-tab" aria-selected="true">
-                                                                        <i className="fas fa-truck-moving"></i>
-                                                                        FCL
-                                                                    </button>
-                                                                </li>
-                                                                <li className="nav-item" role="presentation">
-                                                                    <button className="nav-link" id="lcl-tab" data-bs-toggle="tab"
-                                                                        data-bs-target="#lcl" type="button" role="tab"
-                                                                        aria-controls="lcl-tab" aria-selected="false">
-                                                                        <i className="fas fa-box-open"></i>
-                                                                        LCL
-                                                                    </button>
-                                                                </li>
-                                                                <li className="nav-item" role="presentation">
-                                                                    <button className="nav-link" id="air-tab" data-bs-toggle="tab"
-                                                                        data-bs-target="#air" type="button" role="tab"
-                                                                        aria-controls="air-tab" aria-selected="false">
-                                                                        <i className="fas fa-fighter-jet"></i>
-                                                                        Air
-                                                                    </button>
-                                                                </li>
-                                                            </ul>
+                                                            <Tabs defaultActiveKey="1">
+                                                                <Tabs.TabPane tab="FCL" key="1" icon={<img src={Truck} style={{ width: '50px', paddingRight: '10px' }} />}>
+                                                                    Content of Tab Pane 1
+                                                                </Tabs.TabPane>
+                                                                <Tabs.TabPane tab="LCL" key="2" >
+                                                                    Content of Tab Pane 2
+                                                                </Tabs.TabPane>
+                                                                <Tabs.TabPane tab="Air" key="3">
+                                                                    Content of Tab Pane 3
+                                                                </Tabs.TabPane>
+                                                            </Tabs>
                                                             <div className="tab-content fk-booking-content" id="fk-booking-content">
 
 
@@ -278,7 +266,7 @@ function Home() {
                                                                             <div className="fk-booking-choice-listWrap">
                                                                                 <div className="fk-booking-choice-list">
                                                                                     <div className="fk-booking-choice-title">
-                                                                                        <i className="fas fa-truck-moving"></i>
+                                                                                        <img src={Truck} style={{ width: '50px', paddingRight: '10px' }} />
                                                                                         <h4>Door pickup by FK</h4>
                                                                                     </div>
                                                                                     <div className='toggle-switch transport'>
@@ -295,7 +283,7 @@ function Home() {
                                                                             <div className="fk-booking-choice-listWrap">
                                                                                 <div className="fk-booking-choice-list">
                                                                                     <div className="fk-booking-choice-title">
-                                                                                        <i className="fas fa-file-alt"></i>
+                                                                                        <img src={Document} style={{ width: '30px', paddingRight: '5px' }} />
                                                                                         <h4>Origin Customs by FK</h4>
                                                                                     </div>
                                                                                     <div className='toggle-switch'>
@@ -310,19 +298,19 @@ function Home() {
                                                                         <div className="fk-booking-field">
                                                                             <div className="form-field-wrap">
                                                                                 <h3 className="title">Origin Port / City</h3>
-                                                                                <div className="form-field material-textfield">
-                                                                                    <AutoComplete
-                                                                                        dropdownMatchSelectWidth={252}
-                                                                                        style={{
-                                                                                            width: '100%',
-                                                                                        }}
-                                                                                        options={options}
-                                                                                        onSelect={onSelect}
-                                                                                        onSearch={handleSearch}
-                                                                                    >
 
-                                                                                    </AutoComplete>
-                                                                                </div>
+                                                                                <AutoComplete
+                                                                                    dropdownMatchSelectWidth={252}
+                                                                                    style={{
+                                                                                        width: '100%',
+                                                                                    }}
+                                                                                    options={options}
+                                                                                    onSelect={onSelect}
+                                                                                    onSearch={handleSearch}
+                                                                                >
+
+                                                                                </AutoComplete>
+
                                                                             </div>
                                                                             <div className="form-field-wrap address">
                                                                                 <h3 className="title">Pickup Address</h3>
@@ -334,7 +322,7 @@ function Home() {
                                                                             </div>
                                                                             <div className="form-field-wrap">
                                                                                 <h3 className="title">Cargo Ready Date</h3>
-                                                                                <DatePicker onChange={onChange} />
+                                                                                <DatePicker size="middle" style={{ width: '100%' }} onChange={onChange} />
                                                                             </div>
                                                                         </div>
 
@@ -345,7 +333,7 @@ function Home() {
                                                                             <div className="fk-booking-choice-listWrap">
                                                                                 <div className="fk-booking-choice-list">
                                                                                     <div className="fk-booking-choice-title">
-                                                                                        <i className="fas fa-truck-moving"></i>
+                                                                                        <img src={Truck} style={{ width: '50px', paddingRight: '10px' }} />
                                                                                         <h4>Door delivery by FK</h4>
                                                                                     </div>
                                                                                     <div className='toggle-switch transport'>
@@ -359,7 +347,7 @@ function Home() {
                                                                             <div className="fk-booking-choice-listWrap">
                                                                                 <div className="fk-booking-choice-list">
                                                                                     <div className="fk-booking-choice-title">
-                                                                                        <i className="fas fa-file-alt"></i>
+                                                                                        <img src={Document} style={{ width: '30px', paddingRight: '5px' }} />
                                                                                         <h4>Destination Customs by FK</h4>
                                                                                     </div>
                                                                                     <div className='toggle-switch'>

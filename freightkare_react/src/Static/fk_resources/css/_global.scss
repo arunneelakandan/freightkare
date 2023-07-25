@@ -1,0 +1,244 @@
+@import "./variables";
+@import "./utils";
+
+// Globalsetup
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+html {
+  font-size: $globalFont;
+  font-family: "segoeui", sans-serif;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "segoeui", sans-serif;
+}
+
+.row {
+  margin: 0px;
+}
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  li {
+    list-style: none;
+  }
+}
+a {
+  text-decoration: none;
+}
+p {
+  margin: 0px;
+}
+.no-pad {
+  padding: 0px !important;
+}
+// .flip {
+//   transform: rotate(180deg);
+// }
+.btn-default {
+  background-color: $primary_theme;
+  color: $primary;
+  font-size: $f_16;
+  padding: 6px;
+  border-radius: 5px;
+  transition: all .5s ease-in-out;
+}
+.btn-default:hover {
+  color: $primary_theme;
+  border: 1px solid $primary_theme;
+  background-color: $primary;
+}
+.btn-primary-full {
+  width: 100%;
+}
+.btn-cancel {
+  background-color: $primary;
+  color: $secondary;
+}
+.btn-disabled {
+  background-color: $secondary;
+  color: $primary;
+  cursor: not-allowed !important;
+  opacity: .5 !important;
+  &:hover {
+    color: $primary_theme;
+  }
+}
+button:focus,
+input:focus,
+select:focus {
+  box-shadow: none !important;
+}
+
+.btn-grp {
+  @include flex(row, center, space-between);
+  padding-top: 10px;
+  button {
+    width: 48%;
+  }
+}
+
+.material-textfield {
+  position: relative;  
+  label {
+    position: absolute;
+    font-size: $f_14;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $primary;
+    color: $secondary;
+    padding: 0 0.3rem;
+    margin: 0 0.5rem;
+    transition: .1s ease-out;
+    transform-origin: left top;
+    pointer-events: none;
+  }
+  input {
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid $secondary;
+    border-radius: 5px;  
+    padding: 1rem 0.7rem;
+    color: $primary;
+    transition: 0.1s ease-out;
+    background-color: $primary;
+    width: 100%;
+  }
+  input:focus {
+    border-color: $primary_theme !important;
+  }
+  input:focus + label {
+    color: $primary_theme;
+    top: 3px;
+    left: 10px;
+    transform: translateY(-50%) scale(.8);
+  }
+  input:not(:placeholder-shown) + label {
+    top: 3px;
+    transform: translateY(-50%) scale(.8);
+  }
+
+  &.error {
+    input {
+      border: 1px solid $text_error !important;
+    }
+    input:focus + label {
+      color: $text_error;}
+
+    label {
+      color: $text_error;
+    }
+  }
+}
+
+.material-textfield-textarea {
+  position: relative;  
+  label {
+    position: absolute;
+    font-size: $f_14;
+    left: 0;
+    top: 10%;
+    transform: translateY(-50%);
+    background-color: $primary;
+    color: $secondary;
+    padding: 0 0.3rem;
+    margin: 0 0.5rem;
+    transition: .1s ease-out;
+    transform-origin: left top;
+    pointer-events: none;
+  }
+  textarea {
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid $secondary;
+    border-radius: 5px;  
+    padding: 1rem 0.7rem;
+    color: $secondary;
+    transition: 0.1s ease-out;
+    background-color: $primary;
+  }
+  textarea:focus {
+    border-color: $secondary;
+  }
+  textarea:focus ~ label {
+    color: $secondary;
+    top: 0;
+    left: 10px;
+    transform: translateY(-50%) scale(.9);
+  }
+  textarea:not(:placeholder-shown) ~ label {
+    top: 0;
+    transform: translateY(-50%) scale(.9);
+  }
+}
+
+.material-textfield-select {
+  position: relative;  
+  label {
+    position: absolute;
+    font-size: 1rem;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $primary;
+    color: $secondary;
+    padding: 0 0.3rem;
+    margin: 0 0.5rem;
+    transition: .1s ease-out;
+    transform-origin: left top;
+    pointer-events: none;
+  }
+  select {
+    font-size: 1.4rem;
+    outline: none;
+    border: 1px solid $secondary;
+    border-radius: 5px;  
+    padding: 1.2rem 0.7rem;
+    color: $secondary;
+    transition: 0.1s ease-out;
+    background-color: $primary;
+  }
+  select:focus {
+    border-color: $secondary;
+  }
+  select:focus ~ label {
+    color: $secondary;
+    top: 0;
+    transform: translateY(-50%) scale(.9);
+  }
+  select:not(:placeholder-shown) ~ label {
+    top: 0;
+    transform: translateY(-50%) scale(.9);
+  }
+}
+
+.material-textfield-calender {
+  position: relative;  
+  input {
+    font-size: $f_14;
+    color: $secondary;
+  }
+  label {
+      font-size: $f_14;
+  }
+  .calender-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    height: auto;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.table-condensed {
+  width: 300px;
+  height: 240px;
+  font-size: $f_14;
+}

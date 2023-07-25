@@ -1,0 +1,256 @@
+@import './variables';
+@import './utils';
+
+.fk-quote-wrap {
+    width: 100%;
+    padding: 40px 0px;
+    .fk-quote {
+        h1 {
+            font-size: $f_26;
+            color: $secondary;
+            margin-bottom: 14px;
+        }
+        .fk-form-tabs {
+            ul {
+                border: unset;
+                margin-bottom: 24px;
+                li {
+                    button {
+                        border: unset;
+                        font-size: $f_18;
+                        color: $secondary;
+                        padding: 0px;
+                        margin: 5px 14px 5px 0px;
+                        &.active {
+                            border: unset;
+                            border-bottom: 2px solid $secondary;
+                        }
+                    }
+                }
+            }
+        }
+        .fk-quote-content {
+            .fk-quote-form {
+                & > div {
+                    & > .fk-detail-wrap {
+                        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.01), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
+                        border-radius: 15px;
+                        padding: 20px;
+                    }
+                }
+                .fk-detail-wrap {
+                    margin-bottom: 26px;
+                    h1 {
+                        font-size: $f_18;
+                        color: $secondary;
+                        margin: 14px 0px
+                    }
+                    .delete-icon {
+                        @include flex(row, center, space-between);
+                        i {
+                            font-size: $f_20;
+                            color: red;
+                            cursor: pointer;
+                        }
+                        h1 {
+                            font-size: $f_18;
+                            color: $secondary;
+                            margin: 14px 0px
+                        }
+                    }
+                    
+                    .fk-detail-container {
+                        .fk-clone {
+                            position: relative;
+                            .delete-clone {
+                                display: none;
+                                color: red;
+                                font-size: $f_20;
+                                
+                                &.del-position {
+                                    position: absolute;
+                                    right: 0px;
+                                    top: -5px;
+                                }
+                            }
+                        }
+                        .fk-detail {
+                            margin-bottom: 14px;
+                            .form-field-multi {
+                                @include flex(row, center, flex-start);
+                                &.trash-end {
+                                    align-items: flex-end;
+                                }
+                                .form-field-wrap {
+                                    flex: 1;
+                                    margin-right: 24px;
+                                    &.form-field-single {
+                                        max-width: 49%;
+                                    }
+                                    h3 {
+                                        font-size: $f_16;
+                                        color: $secondary;
+                                        margin-bottom: 12px;
+                                    }
+                                    &:last-child {
+                                        margin-right: 0px;
+                                    }
+                                    .form-field {
+                                        input {
+                                            font-size: $f_14;
+                                            color: $secondary;
+                                        }
+                                        label {
+                                            font-size: $f_14;
+                                        }
+                                        &.form-unit {
+                                            input {
+                                                padding-right: 40px;
+                                            }
+                                            .units {
+                                                position: absolute;
+                                                font-size: $f_14;
+                                                color: $secondary;
+                                                right: 12px;
+                                                top: 50%;
+                                                transform: translateY(-50%);
+                                            }
+                                        }
+                                        &.file-input {
+                                            margin-top: 18px;
+                                            p {
+                                                font-size: $f_14;
+                                                color: $secondary;
+                                                margin-bottom: 8px;
+                                            }
+                                            .file-input__input {
+                                                width: 0.1px;
+                                                height: 0.1px;
+                                                opacity: 0;
+                                                overflow: hidden;
+                                                position: absolute;
+                                                z-index: -1;
+                                            }
+                                            
+                                            .file-input__label {
+                                                cursor: pointer;
+                                                display: inline-flex;
+                                                align-items: center;
+                                                border-radius: 4px;
+                                                font-size: 14px;
+                                                font-weight: 600;
+                                                color: #fff;
+                                                font-size: 14px;
+                                                padding: 10px 12px;
+                                                background-color: $primary_theme;
+                                                box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+                                            }
+                                            
+                                            .file-input__label svg {
+                                                height: 16px;
+                                                margin-right: 4px;
+                                            }                                              
+                                        }
+                                    }
+                                    .form-radio {
+                                        @include flex(row, center, flex-start);
+                                        margin-top: 12px;
+                                        .form-check {
+                                            margin-right: 20px;
+                                            input {
+                                                width: 1.8rem;
+                                                height: 1.8rem;
+                                                margin-right: 8px;
+                                            }
+                                            label {
+                                                font-size: $f_14;
+                                                color: $secondary;
+                                            }
+                                        }
+                                    }
+            
+                                    .quantity-field {
+                                        @include flex(row, center, flex-start);
+                                        border: 1px solid $secondary;
+                                        border-radius: 6px;
+                                        padding: 1px;
+                                        img {
+                                            cursor: pointer;
+                                        }
+                                        input {
+                                            flex: 1;
+                                            font-size: $f_16;
+                                            outline: none;
+                                            padding: 7px;
+                                            color: $secondary;
+                                            transition: 0.1s ease-out;
+                                            background-color: $primary;
+                                            text-align: center;
+                                            border: unset;
+            
+                                            &::-webkit-outer-spin-button,
+                                            &::-webkit-inner-spin-button {
+                                            -webkit-appearance: none;
+                                            margin: 0;
+                                            }
+            
+                                            &[type=number] {
+                                            -moz-appearance: textfield;
+                                            }
+            
+                                            &.assessment-fieldRange-disabled {
+                                                background-color: $secondary;
+                                                color: $secondary;
+                                                border-radius: 5px;
+                                            }
+                                        }
+                                    }
+                                }
+                                .delete-clone {
+                                    display: none;
+                                    i {
+                                        font-size: $f_20;
+                                        color: red;
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+                            .fk-checkbox {
+                                margin-top: 12px;
+                                input {
+                                    width: 1.8rem;
+                                    height: 1.8rem;
+                                    margin-right: 8px;
+                                }
+                                label {
+                                    font-size: $f_14;
+                                    color: $secondary;
+                                }
+                            }
+
+                            &.imo-class {
+                                display: none;
+                            }
+                        }
+                    }
+                    
+                    .btn-quote {
+                        font-size: $f_14;
+                        margin-top: 14px;
+                        padding: 6px 12px;
+                        text-transform: uppercase;
+                        &.imo-class-btn {
+                            display: none;
+                        }
+                    }
+                }
+                .btn-quote-submit {
+                    font-size: $f_14;
+                    margin-top: 14px;
+                    padding: 6px 12px;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}

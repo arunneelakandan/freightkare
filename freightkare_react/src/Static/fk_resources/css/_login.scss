@@ -1,0 +1,167 @@
+@import './variables';
+@import './utils';
+
+// Login
+.form-layout {
+    background-color: $secondary;
+    min-height: 100vh;
+
+    .layout-left {
+        position: relative;
+        min-height: 100vh;
+        background-color: $secondary;
+        z-index: 1;
+
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            background-repeat: no-repeat;
+            background-position: bottom -50px left;
+            height: 250px;
+            width: 300px;
+            top: 0;
+            right: 0;
+            overflow: hidden;
+            opacity: .4;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            background-repeat: no-repeat;
+            height: 250px;
+            width: 100%;
+            bottom: 0;
+            overflow: hidden;
+            opacity: .8;
+        }
+
+        .logo {
+            padding: 50px 40px;
+            a {
+                img {
+                    width: 240px;
+                    height: auto;
+                }
+            }
+        }
+        .logo-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+
+            .tagline {
+                font-size: $f_25;
+                color: $primary;
+                font-weight: bold;
+                text-align: center;
+                line-height: 1.1;
+                padding-top: 20px;
+            }
+        }
+    }
+
+    .layout-right {
+        @include flex(column, center, center);
+        background: $primary;
+        min-height: 100vh;
+        z-index: 2;
+
+        .form-fields-wrap {
+            @include flex(column, center, center);
+            flex: 1;
+            width: 60%;
+            padding: 60px 0px;
+
+            h1 {
+                font-size: $f_32;
+                color: $secondary;
+                width: 100%;
+                text-align: left;
+                padding-bottom: 20px;
+            }
+            h3 {
+                padding-bottom: 30px;
+                font-size: $f_16;
+                color: $secondary;
+            }
+            .form-fields {
+
+                .form-field {
+                    margin-bottom: 20px;
+
+                    input {
+                        height: 40px;
+                        background-color: transparent;
+                        border: 1px solid $secondary;
+                        border-radius: 5px;
+                        font-size: $f_16;
+                        color: $secondary;
+
+                        &::placeholder {
+                            color: $secondary;
+                        }
+
+                        &:checked {
+                            background-color: $primary_theme
+                        }
+                    }
+                }
+                .form-field-check {
+                    @include flex(row, center, space-between);
+                    .form-check {
+                        @include flex(row, flex-start, flex-start);
+                        input {
+                            height: 1em;
+                            margin-left: -14px;
+                        }
+                        label {
+                            color: $secondary;
+                            font-size: $f_14;
+                            margin-left: 6px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .forgot-password a {
+                    color: $secondary;
+                    font-size: $f_14;
+                }
+                .btn-login {
+                    margin: 10px 0px 30px 0px;
+                }
+                .sso-link {
+                    width: 100%;
+                    text-align: center;
+                    a {
+                        color: $secondary;
+                        font-size: $f_14;
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .passcode-requirement {
+                h2 {
+                    font-size: 22px;
+                    color: $secondary;
+                    margin-bottom: 13px;
+                }
+                ul {
+                    li {
+                        color: $secondary;
+                        font-size: $f_16;
+                    }
+                }
+            }
+        }
+        .copy-right {
+            padding: 0px 0px 50px;
+            color: $secondary;
+            font-size: $f_12;
+        }
+    }
+}

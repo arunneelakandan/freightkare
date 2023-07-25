@@ -3,64 +3,6 @@
     background: rgb(241, 244, 249);
 }
 
-/* Dropdown customize */
-.ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector {
-    background: #DEE9FC;
-}
-
-/* Dropdown result customize */
-/* .ant-select-dropdown-hidden{
-    background: #dee9fc;
-} */
-
-/* Dropdown arrow customize */
-.ant-select-arrow {
-    color: #0845b4;
-}
-
-.ant-select-dropdown {
-    background-color: #dee9fc;
-}
-
-.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
-    background-color: #6395F2;
-    color: white;
-    font-size: 12px;
-}
-
-.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
-    background-color: #0845b4;
-    color: rgb(255 255 255 / 85%);
-    font-weight: 600;
-    font-size: 12px;
-}
-
-.ant-select-item-option {
-    font-size: 12px;
-}
-
-.ant-select-dropdown-hidden {
-    background-color: #dee9fc;
-}
-
-/* Datepicker customize */
-.ant-picker {
-    background: rgb(241, 244, 249);
-    padding: 0 0 0 10px;
-}
-
-/* Datepicker icon customize */
-.ant-picker-suffix {
-    color: #0845b4;
-    border-left: 1px solid #c5c5c5;
-    padding: 8px 5.4px;
-    background: #fafafa;
-}
-
-/* Datepicker clear icon customize */
-.ant-picker-clear {
-    right: 40px;
-}
 
 /* Button Customize */
 .ant-btn-primary,
@@ -136,12 +78,7 @@
     background: #555;
 }
 
-.ant-select,
-.ant-picker-input>input,
-.ant-input {
-    font-size: 12px;
-    font-weight: 400;
-}
+
 
 .table-box {
     border: 1px solid #ccc;

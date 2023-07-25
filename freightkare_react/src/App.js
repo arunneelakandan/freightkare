@@ -12,20 +12,9 @@ function App() {
 
     return (
         <>
-            <div className='row' style={{ margin: 0 }}>
-                <div className='col-md-6'>
-                    <div className='row' >
-                    {/* <img id="headerTitle" src={Logo} align="middle" alt='FactEntry Logo'></img> */}
-                    </div>
-                </div>
-                <div className='col-md-6' style={{ padding: 0 }}>
+            
                     <Login />
-                </div>
-            </div>
-            {/* <Register /> */}
-            <div className="content flex">
-                <p>Copyright © 2022 FrieghtKare</p>
-            </div>
+                
         </>
     );
 }
